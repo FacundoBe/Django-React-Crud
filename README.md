@@ -6,7 +6,7 @@ Incluye solamente el CRUD de las tareas, sin considerar Autenticacion ni multipl
 
 ## El backend: 
 Utiliza un unico modelo de Dajngo para las tareas y el crud basico usando los presets de ***Django-rest-framework***
-para generar las views automatiamente y con la interfaz de api de esa libreria.
+para generar las views automaticamente y con la interfaz de API de esa libreria.
 
 ## El Frontend utiliza:
 - **axios** para las hacer las llamadas a la Api
