@@ -1,18 +1,46 @@
 import { useForm } from "react-hook-form"
-import { createTask } from "../api/tasks.api"
+import { createTask, getTaskById, updateTask } from "../api/tasks.api"
 import { useNavigate, useParams } from 'react-router-dom'
 import { deleteTask } from "../api/tasks.api"
+import { useEffect } from "react"
+import { toast } from 'react-hot-toast'
 
 export default function TaskFormPage() {
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm()
 
     const navigate = useNavigate()
     const params = useParams()
-    console.log("params", params)
+
+    useEffect(() => {
+        if (params.id) {
+
+            async function loadTask() {
+                const { data } = await getTaskById(params.id)
+                setValue('title', data.title)
+                setValue('description', data.description)
+            }
+
+            loadTask()
+        }
+    }
+        , [])
+
+
 
     const onSubmit = handleSubmit(async (data) => {
-        await createTask(data)
+        if (params.id) {
+            await updateTask(params.id, data)
+            toast.success("Se ha editado la tarea correctamente",
+                {style: { borderRadius: '10px', background: '#333',    color: '#fff', }}
+            )
+        }
+        else {
+            await createTask(data)
+            toast.success("Se ha creado la tarea correctamente", 
+                {style: { borderRadius: '10px', background: '#333',    color: '#fff', }}
+            )
+        }
         navigate("/")
     })
 
@@ -42,7 +70,7 @@ export default function TaskFormPage() {
                 />
                 {errors.description && <span> Description is mandatory </span>}
                 <button type="submit" >Save </button>
-                {params?.id && <button onClick={handleDelete}> Delete </button>}
+                {params?.id && <button type="button" onClick={handleDelete}> Delete </button>}
             </form>
         </div>
     )
