@@ -5,7 +5,7 @@ Esta desarrollado siguiendo el video [https://www.youtube.com/watch?v=38XWpyEK8I
 Incluye solamente el CRUD de las tareas, sin considerar Autenticacion ni multiples usuarios
 
 ## El backend: 
-Utiliza un unico modelo de Dajngo para las tareas y el crud basico usando los presets de ** Django-rest-framework **
+Utiliza un unico modelo de Dajngo para las tareas y el crud basico usando los presets de ***Django-rest-framework***
 para generar las views automatiamente y con la interfaz de api de esa libreria.
 
 ## El Frontend utiliza:
