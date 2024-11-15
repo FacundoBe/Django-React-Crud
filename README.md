@@ -14,6 +14,6 @@ para generar las views automatiamente y con la interfaz de api de esa libreria.
 - **react-hot-toast** para mostrar los mensajes al usuario.
 
  Es un ejemplo super basico, que no considera control de errores ni validaciones en Front o Backend
+![imagen](https://github.com/user-attachments/assets/ce2581d8-0321-4380-859e-b4540d7db08d)
 
- ![imagen](https://github.com/user-attachments/assets/01bd8937-5492-4428-832e-24f4b4c8af0b)
 
